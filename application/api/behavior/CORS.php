@@ -15,7 +15,7 @@ class CORS
     public function appInit(&$params){
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Headers: token,Origin,X-Requested-With,Content-type,Accept');
-        header('Access-Control-Allow-methods: POST,GET,PUT');
+        header('Access-Control-Allow-methods: POST,GET,PUT,DELETE');
 
         if (request()->isOptions()){
             exit();

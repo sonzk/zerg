@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 项目详情</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="../favicon.ico"> <link href="../css/common/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/common/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../js/webuploader/webuploader.css" rel="stylesheet">
+    <link href="../css/common/animate.css" rel="stylesheet">
+    <link href="../css/common/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="row">
+    <div class="col-sm-9">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="m-b-md">
+                                <a class="btn btn-white pull-right" href="javascript:history.back(-1);" title="刷新">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                                <a class="btn btn-white pull-right" href="javascript:location.replace(location.href);" title="刷新">
+                                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                                <h2 id="product-name"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <dl class="dl-horizontal">
+
+                                <input type="file" id="upload_file" style="display: none" name="file"/>
+
+                                <a id="main_img"><span>修改主图</span><img style="width: 250px; height: 150px" class="main_img" src=""></a>
+
+                            </dl>
+                        </div>
+                        <div class="col-sm-7" id="cluster_info">
+                            <!--<dl class="dl-horizontal detail">-->
+
+                            <!--</dl>-->
+                            <table class="table table-stripped toggle-arrow-tiny property" >
+
+                            </table>
+                            <div class="text-center">
+                                <button type="button" id="jump-detail" class="btn btn-primary">
+                                    查看对应商品/主题
+                                </button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    修改
+                                </button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row m-t-sm">
+                        <div class="col-sm-12">
+                            <div class="panel blank-panel">
+                                <div class="panel-heading">
+                                    <div class="panel-options">
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--模态框-->
+<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>类型</label>
+                    <select id="type-change" class="form-control m-b">
+                        <option  value="0" >请选择</option>
+                        <option value="1">商品</option>
+                        <option value="2">主题</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>对应</label>
+                    <select id="type-value" class="form-control m-b">
+                        <option value="0" >请选择</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                <button type="button" id="type-update" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- 全局js -->
+<script src="../js/base.js"></script>
+<script src="../js/login/isLogin.js"></script>
+<script src="../js/common/jquery.min.js?v=2.1.4"></script>
+<script src="../js/common/bootstrap.min.js?v=3.3.6"></script>
+<script src="../js/common/layer/layer.min.js"></script>
+<script src="../js/banner/banner-detail.js"></script>
+<script src="../js/webuploader/webuploader.js"></script>
+<script src="../js/product/product-detail-webuploader.js"></script>
+
+<!-- 自定义js -->
+
+
+
+
+</body>
+
+</html>

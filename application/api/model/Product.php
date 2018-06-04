@@ -12,7 +12,8 @@ namespace app\api\model;
 class Product extends BaseModel
 {
     //隐藏字段
-    protected $hidden = ['delete_time','update_time','category_id','from','create_time','pivot'];
+    protected $hidden = ['update_time','category_id','from','pivot'];
+    protected $autoWriteTimestamp = true;
 
     public function getMainImgUrlAttr($value ,$data){
 
@@ -31,23 +32,41 @@ class Product extends BaseModel
 
     //获取最新
     public static function getMostRecent($count){
-        return self::limit($count)->order('create_time desc')->select();
+        return self::where('delete_time','neq',1)->limit($count)->order('create_time desc')->select();
     }
 
     //根据分类获取
     public static function getProductByCategoryId($id){
-        return self::where('category_id','=',$id)->select();
+        return self::where('category_id','=',$id)->where('delete_time','neq',1)->select();
     }
 
     //获取单个商品详情
     public static function getProductDetail($id){
-        return self::with([
+        return self::where('delete_time','neq',1)->with([
             'imgs'=>function($query){
-                $query->with(['imageUrl'])->order('order','asc');
+                $query->where('delete_time','neq',1)->with(['imageUrl'])->order('order','asc');
             }
         ])
             ->with(['detail'])
             ->find($id);
+    }
+
+    public static function getProductByPage($page,$size){
+        return self::where('delete_time','neq',1)->order('create_time desc')->paginate($size,true,['page'=>$page]);
+    }
+
+    public static function deleteById($id){
+        return self::where('id','=',$id)->update(['delete_time'=>1]);
+    }
+
+    public static function productAdd($data){
+        $res = self::create($data);
+
+        return $res->id;
+    }
+
+    public static function getProductAll(){
+        return self::where('delete_time','neq',1)->select();
     }
 }
 

@@ -227,8 +227,8 @@ class Order
         return $products;
     }
 
-    public function delivery($orderId,$jumpPage=''){
-        $order = OrderModel::get($orderId);
+    public function delivery($data,$jumpPage=''){
+        $order = OrderModel::get($data['id']);
 
         if (!$order){
             throw new OrderException();
@@ -243,8 +243,15 @@ class Order
         }
 
         //就算模板没发成功也应该修改状态为已发货
-        $order->status = OrderStatusEnum::DELIVERED;
-        $order->save();
+        try{
+            $order->status = OrderStatusEnum::DELIVERED;
+            $order->express_name = $data['express_name'];
+            $order->express_no = $data['express_no'];
+            $order->delivery_time = time();
+            $order->save();
+        }catch (\Exception $e){
+           throw new \Exception($e->getMessage());
+        }
 
         $message = new DeliveryMessage();
         return $message->sendDeliveryMessage($order,$jumpPage);

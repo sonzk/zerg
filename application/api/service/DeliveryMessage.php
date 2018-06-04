@@ -32,13 +32,12 @@ class DeliveryMessage extends WxMessage
     }
 
     private function prepareData($order){
-        $dt = new \DateTime();
         $data = [
             'keyword1'=>[
-                'value'=>'顺丰速递',
+                'value'=>$order->express_name,
             ],
             'keyword2'=>[
-                'value'=>$dt->format('Y-m-d H:i:s'),
+                'value'=>$order->express_no,
             ],
             'keyword3'=>[
                 'value'=>$order->snap_name,

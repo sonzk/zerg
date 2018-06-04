@@ -18,4 +18,8 @@ class BannerItem extends BaseModel
     public function img(){
         return $this->belongsTo('Image','img_id','id');
     }
+
+    public static function getBannerItemById($id){
+        return self::with('img')->find($id);
+    }
 }

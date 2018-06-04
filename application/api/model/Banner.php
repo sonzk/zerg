@@ -21,6 +21,10 @@ class Banner extends BaseModel
 
     //根据id查询banner，多表查询
     public static function getBannerById($id){
-        return self::with(['items','items.img'])->find($id);
+        return self::with([
+            'items'=>function($query){
+                $query->order('list_order desc')->with(['img']);
+            }
+        ])->find($id);
     }
 }

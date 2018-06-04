@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 项目详情</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="../favicon.ico"> <link href="../css/common/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/common/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../js/webuploader/webuploader.css" rel="stylesheet">
+    <link href="../css/common/animate.css" rel="stylesheet">
+    <link href="../css/common/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="row">
+    <div class="col-sm-9">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="m-b-md">
+                                <a class="btn btn-white pull-right" id="back-order" title="返回">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                                <a class="btn btn-white pull-right" href="javascript:location.replace(location.href);" title="刷新">
+                                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                                <h2 id="product-name"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <dl class="dl-horizontal">
+
+                                <img style="width: 150px; height: 150px" class="main_img" src="">
+
+                            </dl>
+                        </div>
+                        <div class="col-sm-7" id="cluster_info">
+                            <dl class="dl-horizontal" id="order-info">
+
+                            </dl>
+                            <div class="text-center">
+                                <button type="button" id="delivery" style="display: none" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row m-t-sm">
+                        <div class="col-sm-12">
+                            <div class="panel blank-panel">
+                                <div class="panel-heading">
+                                    <div class="panel-options">
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+
+                                    <div class="tab-content">
+                                        <div class="media-body ">
+                                            <table class="table table-stripped toggle-arrow-tiny" >
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>商品名</th>
+                                                    <th>价格</th>
+                                                    <th>购买数量</th>
+                                                    <th>合计价格</th>
+                                                    <th>主图</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                <tbody id="order-product">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--模态框-->
+<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>物流公司</label>
+                    <input type="text" id="express_name" name="express_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>单号</label>
+                    <input type="text" id="express_no" name="express_no" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-white" data-dismiss="modal">关闭</button>
+                <button type="button" id="delivery-btn" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 全局js -->
+<script src="../js/base.js"></script>
+<script src="../js/login/isLogin.js"></script>
+<script src="../js/common/jquery.min.js?v=2.1.4"></script>
+<script src="../js/common/bootstrap.min.js?v=3.3.6"></script>
+<script src="../js/common/layer/layer.min.js"></script>
+<script src="../js/order/order-detail.js"></script>
+
+<!-- 自定义js -->
+
+
+
+
+</body>
+
+</html>

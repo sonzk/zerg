@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - 项目详情</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="../favicon.ico"> <link href="../css/common/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/common/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../js/webuploader/webuploader.css" rel="stylesheet">
+    <link href="../css/common/animate.css" rel="stylesheet">
+    <link href="../css/common/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+<div class="row">
+    <div class="col-sm-9">
+        <div class="wrapper wrapper-content animated fadeInUp">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="m-b-md">
+                                <a class="btn btn-white pull-right" href="javascript:history.back(-1);" title="刷新">
+                                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                                <a class="btn btn-white pull-right" href="javascript:location.replace(location.href);" title="刷新">
+                                    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                                <h2 id="product-name"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <dl class="dl-horizontal">
+
+                                <input type="file" id="upload_file" style="display: none" name="file"/>
+
+                                <a id="main_img"><span>修改主图</span><img style="width: 300px; height: 130px" class="main_img" src=""></a>
+
+                            </dl>
+                        </div>
+                        <div class="col-sm-7" id="cluster_info">
+                            <!--<dl class="dl-horizontal detail">-->
+
+                            <!--</dl>-->
+                            <table class="table table-stripped toggle-arrow-tiny property" >
+
+                            </table>
+                            <div class="text-center">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row m-t-sm">
+                        <div class="col-sm-12">
+                            <div class="panel blank-panel">
+                                <div class="panel-heading">
+                                    <div class="panel-options">
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-body">
+
+                                    <div class="tab-content">
+                                        <div class="media-body ">
+                                            <table class="table table-stripped toggle-arrow-tiny" >
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>商品名</th>
+                                                    <th>价格</th>
+                                                    <th>库存</th>
+                                                    <th>主图</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                                <tbody id="category-product">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--模态框-->
+<div class="modal inmodal" id="modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>分类变更</label>
+                    <select id="category-all" class="form-control m-b">
+
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-white" data-dismiss="modal">关闭</button>
+                <button type="button" id="category-change" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 全局js -->
+<script src="../js/base.js"></script>
+<script src="../js/login/isLogin.js"></script>
+<script src="../js/common/jquery.min.js?v=2.1.4"></script>
+<script src="../js/common/bootstrap.min.js?v=3.3.6"></script>
+<script src="../js/common/layer/layer.min.js"></script>
+<script src="../js/category/category-detail.js"></script>
+
+<!-- 自定义js -->
+
+
+
+
+</body>
+
+</html>

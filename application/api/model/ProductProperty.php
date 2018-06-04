@@ -7,5 +7,5 @@ namespace app\api\model;
 class ProductProperty extends BaseModel
 {
     //
-    protected $hidden = ['id','product_id','delete_time','update_time'];
+    protected $hidden = ['product_id','delete_time','update_time'];
 }

@@ -66,6 +66,15 @@ class BaseValidate extends Validate
         }
     }
 
+
+    protected function isFloatAndInt($value){
+        if (is_numeric($value) || is_float($value)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     //根据规则获取数据，只获取规则里有的数据
     public function getDataByRule($array){
         if (array_key_exists('user_id',$array) || array_key_exists('uid',$array)){

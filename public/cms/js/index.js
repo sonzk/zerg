@@ -43,6 +43,7 @@ $(function(){
                         '<td>￥' + item.total_price + '</td>' +
                         '<td>' + getOrderStatus(item.status) + '</td>' +
                         '<td>' + item.create_time + '</td>' +
+                        '<td data-id="' + item.id + '">' + getDetail() + '</td>' +
                         '<td data-id="' + item.id + '">' + getBtns(item.status) + '</td>' +
                         '</tr>';
                 }
@@ -94,6 +95,10 @@ $(function(){
         }
     }
 
+    function getDetail() {
+        return '<span class="order-btn detail">'+'查看'+'</span>';
+    }
+
     /*控制加载更多按钮的显示*/
     function ctrlLoadMoreBtn(){
         if(moreDataFlag) {
@@ -140,6 +145,8 @@ $(function(){
         };
         window.base.getData(params);
     });
+
+
 
     /*退出*/
     $(document).on('click','#login-out',function(){

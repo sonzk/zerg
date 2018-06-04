@@ -44,5 +44,10 @@ class Order extends BaseModel
         return json_decode($value);
     }
 
+    public static function getListByStatus($status,$page=1,$size=15){
+        $paginate = self::where('status','=',$status)->order('create_time desc')
+            ->paginate($size,true,['page'=>$page]);
+        return $paginate;
+    }
 
 }

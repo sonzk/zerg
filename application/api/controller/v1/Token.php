@@ -31,9 +31,6 @@ class Token
 
     //第三方获取令牌
     public function getAppToken($ac='' , $se =''){
-        header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Headers: token,Origin,X-Requested-With,Content-type,Accept');
-        header('Access-Control-Allow-methods: POST,GET');
         (new AppTokenGet())->goCheck();
         $app =  new AppTokenService();
         $token = $app->get($ac , $se);

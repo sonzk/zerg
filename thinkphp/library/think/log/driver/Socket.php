@@ -34,10 +34,10 @@ class Socket
 
     protected $css = [
         'sql'      => 'color:#009bb4;',
-        'sql_warn' => 'color:#009bb4;font-size:14px;',
-        'error'    => 'color:#f4006b;font-size:14px;',
+        'sql_warn' => 'color:#009bb4;common-size:14px;',
+        'error'    => 'color:#f4006b;common-size:14px;',
         'page'     => 'color:#40e2ff;background:#171717;',
-        'big'      => 'font-size:20px;color:red;',
+        'big'      => 'common-size:20px;color:red;',
     ];
 
     protected $allowForceClientIds = []; //配置强制推送且被授权的client_id

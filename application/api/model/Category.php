@@ -13,7 +13,7 @@ class Category extends BaseModel
 {
 
     //隐藏字段
-    protected $hidden = ['delete_time','update_time'];
+    protected $hidden = ['update_time'];
     public function img(){
         return $this->belongsTo('Image','topic_img_id','id');
     }

@@ -10,6 +10,7 @@ namespace app\api\controller\v1;
 
 
 
+use app\api\validate\Delivery;
 use app\api\validate\IdMustBePositiveInt;
 use app\api\validate\OrderPlace;
 use app\api\validate\PageParameter;
@@ -18,6 +19,7 @@ use app\lib\exception\OrderException;
 use app\api\service\Order as OrderService;
 use app\api\service\Token as TokenService;
 use app\api\model\Order as OrderModel;
+use app\lib\exception\ParameterException;
 use app\lib\SuccessMessage;
 
 class Order extends BaseController
@@ -79,6 +81,8 @@ class Order extends BaseController
         return $orderDetail->hidden(['prepay_id']);
     }
 
+
+
     public function getSummary($page=1,$size=15){
         $validate = new PageParameter();
         $validate->goCheck();
@@ -97,14 +101,37 @@ class Order extends BaseController
         ];
     }
 
-    public function delivery($id){
-        (new IdMustBePositiveInt())->goCheck();
+
+    public function delivery(){
+        $data = input('post.');
+        $validate = new Delivery();
+        if (!$validate->check($data)){
+            throw new ParameterException([
+                'msg' => $validate->getError()
+            ]);
+        }
 
         $order = new OrderService();
-        $success = $order->delivery($id);
+        $success = $order->delivery($data);
         if ($success){
             return new SuccessMessage();
         }
+    }
+
+    public function getOrderListByStatus($status,$page=1,$size=5){
+
+        $paginateOrder = OrderModel::getListByStatus($status,$page,$size);
+        if ($paginateOrder->isEmpty()){
+            return [
+                'data'=>[],
+                'current_page'=>$paginateOrder->currentPage(),
+            ];
+        }
+        $data = $paginateOrder->hidden(['snap_items','snap_address'])->toArray();
+        return [
+            'data'=>$data,
+            'current_page'=>$paginateOrder->currentPage()
+        ];
     }
 }
 

@@ -33,7 +33,6 @@ class Token
 
     public static function getCurrentTokenVar($key){
         $token = Request::instance()->header('token');
-
         $vars = Cache::get($token);
         if (!$vars){
             throw new TokenException();
@@ -69,6 +68,21 @@ class Token
         if ($scope){
 
             if ($scope >= ScopeEnum::USER){
+                return true;
+            }else{
+                throw new ForbiddenException();
+            }
+
+        }else{
+            throw new TokenException();
+        }
+    }
+
+    public static function getSuperScope(){
+        $scope = static::getCurrentUserScope();
+        if ($scope){
+
+            if ($scope == ScopeEnum::SUPER){
                 return true;
             }else{
                 throw new ForbiddenException();
